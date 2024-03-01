@@ -1,0 +1,77 @@
+<template>
+  <lightning-card title={salutation} heading-level="2">
+    <div class="slds-p-horizontal_small">
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <lightning-input
+            class="search-input"
+            type="search"
+            variant="label-hidden"
+            value={searchText}
+            onkeyup={handlePressEnter}
+            onchange={handleUpdateSearchText}
+            placeholder="Search recipes to pamper your taste buds"
+          ></lightning-input>
+          <lightning-button
+            variant="brand"
+            label="Search"
+            title="Primary action"
+            onclick={(handleSearchRecipes)}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </div>
+        <div class="actions">
+          <lightning-button
+            variant="brand-outline"
+            label="Favourites"
+            onclick={handleShowFavourites}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </div>
+      </div>
+      <div class="message info-message">{infoMessage}</div>
+      <!-- List of Recipes -->
+      <template lwc:if={isLoading}>
+        <lightning-spinner
+          alternative-text="Loading"
+          size="medium"
+        ></lightning-spinner>
+      </template>
+      <template lwc:elseif={error}>
+        <div class="message error-message">{error}</div>
+      </template>
+      <template lwc:else>
+        <template lwc:if={recipesList}>
+          <div class="recipe-cards-wrapper">
+            <template for:each={recipesList} for:item="recipe">
+              <c-recipe-card
+                key={recipe.id}
+                recipedata={recipe}
+                ontogglefav={handleToggleFavourite}
+              ></c-recipe-card>
+            </template>
+          </div>
+        </template>
+        <template lwc:else>
+          <div class="message info-message">Search a Recipe</div>
+        </template>
+      </template>
+      <div class="bottom-action">
+        <template lwc:if={showLoadMore}>
+          <lightning-button
+            icon-name="utility:add"
+            variant="brand-outline"
+            label="Load More"
+            class="slds-m-left_x-small"
+            onclick={handleLoadMoreRecipes}
+            disabled={disableLoadMore}
+          ></lightning-button>
+        </template>
+        <template lwc:if={loadMoreInfoMessage}>
+          {loadMoreInfoMessage}
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>

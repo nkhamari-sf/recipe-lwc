@@ -1,0 +1,18 @@
+<template>
+  <template lwc:if={isTrue}>
+    <lightning-badge
+      class="success slds-theme_success"
+      label={title}
+      icon-name="action:check"
+      icon-position="end"
+    ></lightning-badge>
+  </template>
+  <template lwc:else>
+    <lightning-badge
+      class="error slds-theme_error"
+      label={title}
+      icon-name="action:close"
+      icon-position="end"
+    ></lightning-badge>
+  </template>
+</template>

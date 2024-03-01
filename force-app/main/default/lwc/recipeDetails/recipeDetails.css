@@ -1,0 +1,52 @@
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.recipe-image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  margin-top: 2rem;
+}
+.widgets h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.widgets img {
+  width: 100%;
+}
+
+.summary {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.details {
+  display: flex;
+  gap: 10px 50px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+.lgc-bg {
+  background-color: rgb(242 242 242);
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.lgc-bg-inverse {
+  background-color: rgb(22 50 92);
+}

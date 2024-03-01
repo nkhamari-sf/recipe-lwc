@@ -1,0 +1,50 @@
+.card-wrapper {
+  padding: 1rem;
+}
+
+.salutation {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.search-wrapper {
+  display: flex;
+}
+.search-box {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.actions {
+  display: flex;
+  justify-content: end;
+}
+.search-wrapper .search-input {
+  width: 30%;
+}
+
+.recipe-cards-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.message {
+  font-size: 1.25rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.error-message {
+  color: red;
+}
+
+.info-message {
+  color: #192a56;
+  justify-content: flex-start;
+}
+
+.bottom-action {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}

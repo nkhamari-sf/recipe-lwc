@@ -1,0 +1,94 @@
+<template>
+  <lightning-modal-header label={recipedata.title}></lightning-modal-header>
+  <lightning-modal-body>
+    <div class="details-wrapper">
+      <lightning-layout>
+        <lightning-layout-item size="6" padding="horizontal-medium">
+          <lightning-formatted-rich-text
+            class="summary"
+            value={recipedata.summary}
+          ></lightning-formatted-rich-text>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="horizontal-medium">
+          <img
+            class="recipe-image"
+            src={recipedata.image}
+            alt={recipedata.title}
+          />
+        </lightning-layout-item>
+      </lightning-layout>
+      <lightning-layout>
+        <lightning-layout-item size="6" padding="horizontal-medium">
+          <div class="slds-p-around_medium lgc-bg">
+            <lightning-tile>
+              <dl class="slds-dl_horizontal">
+                <dt class="slds-dl_horizontal__label">
+                  <p class="slds-truncate"><b>Healthy Score:</b></p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                  <p class="slds-truncate">{recipedata.healthScore}</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                  <p class="slds-truncate"><b>Time to prepare:</b></p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                  <p class="slds-truncate">{recipedata.readyInMinutes} mins</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                  <p class="slds-truncate"><b>Dish Type:</b></p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                  <p class="slds-truncate">{recipedata.dishTypes}</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                  <p class="slds-truncate"><b>Diets:</b></p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                  <p class="slds-truncate">{recipedata.diets}</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                  <p class="slds-truncate"><b>Cuisines:</b></p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                  <p class="slds-truncate">{recipedata.cuisines}</p>
+                </dd>
+              </dl>
+            </lightning-tile>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="horizontal-medium">
+          <div class="badges">
+            <c-recipe-badge
+              title="Vageterian"
+              is-true={recipedata.vegeterian}
+            ></c-recipe-badge>
+            <c-recipe-badge
+              title="Vegan"
+              is-true={recipedata.vegan}
+            ></c-recipe-badge>
+            <c-recipe-badge
+              title="Gluten Free"
+              is-true={recipedata.glutenFree}
+            ></c-recipe-badge>
+            <c-recipe-badge
+              title="Dairy Free"
+              is-true={recipedata.dairyFree}
+            ></c-recipe-badge>
+            <c-recipe-badge
+              title="Healthy"
+              is-true={recipedata.veryHealthy}
+            ></c-recipe-badge>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+      <lightning-tabset style="min-height: 900px; padding: 0px 20px">
+        <lightning-tab label="Nutrition Fact">
+          <img src={nutrientWidget} />
+        </lightning-tab>
+        <lightning-tab label="Ingrideints" title="2nd tab extended title">
+          <img src={ingdrientWidget} />
+        </lightning-tab>
+      </lightning-tabset>
+    </div>
+  </lightning-modal-body>
+</template>

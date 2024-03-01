@@ -1,0 +1,5 @@
+.success,
+.error {
+  --slds-c-badge-icon-color-foreground: #fff;
+  font-size: 1rem;
+}

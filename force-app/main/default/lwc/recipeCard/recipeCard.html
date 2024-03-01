@@ -1,0 +1,58 @@
+<template>
+  <div class="recipe-card">
+    <img src={recipedata.image} alt={recipedata.title} />
+    <div class="details">
+      <div class="basic-details">
+        <h3 class="title">{recipedata.title}</h3>
+        <lightning-badge
+          class="score"
+          label={recipedata.healthScore}
+        ></lightning-badge>
+      </div>
+      <div class="nutrients">
+        <template for:each={usefulNutrients} for:item="nutrient">
+          <lightning-badge
+            key={nutrient}
+            label={nutrient}
+            class="slds-badge_lightest"
+          ></lightning-badge>
+        </template>
+      </div>
+      <div class="actions">
+        <lightning-button
+          label="More Details"
+          title="Download action"
+          variant="brand"
+          stretch
+          class="more-btn"
+          onclick={openRecipeFullDetails}
+        ></lightning-button>
+        <button
+          class="slds-button slds-button_icon slds-button_icon-border-filled"
+          aria-pressed="true"
+          title="Save as Favourite"
+          onclick={handleToggleFavRecipe}
+        >
+          <template lwc:if={recipedata.isFavourite}>
+            <lightning-icon
+              icon-name="utility:heart"
+              alternative-text="Remove from Favourite"
+              title="heart"
+              class="fav-icon-filled"
+              size="x-small"
+            ></lightning-icon>
+          </template>
+          <template lwc:else>
+            <lightning-icon
+              icon-name="utility:heart"
+              alternative-text="Save as Favourite"
+              title="heart"
+              size="x-small"
+            ></lightning-icon>
+          </template>
+          <span class="slds-assistive-text">Save as Favourite</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
